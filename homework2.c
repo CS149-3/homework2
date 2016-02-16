@@ -15,6 +15,7 @@ struct process {
 	char *name;	// A, B, C...
 };
 
+// just my initial thoughts on an output struct, this is not final, needs improvement
 struct output {
 	char *timechart;
 	float avgturnaround;
