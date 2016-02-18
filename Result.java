@@ -6,8 +6,7 @@ public class Result {
 	private ArrayList<String> processList;
 	private float turnaroundTotal;
 	private float waitingTotal;
-	private float responceTotal;
-	 
+	private float responseTotal;
 	
 	
 	public Result(){
@@ -15,7 +14,7 @@ public class Result {
 		processList = new ArrayList<String>();
 		turnaroundTotal = 0;
 		waitingTotal = 0;
-		responceTotal = 0;
+		responseTotal = 0;
 	}
 	
 	public void addChart(String processes){
@@ -26,10 +25,10 @@ public class Result {
 		processList.add(process);
 	}
 	
-	public void outputResults(float turnaround, float waiting, float responce){
+	public void outputResults(float turnaround, float waiting, float response){
 		turnaroundTotal += turnaround;
 		waitingTotal += waiting;
-		responceTotal += responce;
+		responseTotal += response;
 	}
 	
 	public String toString(){
@@ -41,7 +40,7 @@ public class Result {
 		
 		returnable += "Turnaround Avg: " + (turnaroundTotal / processList.size()) +"/n";
 		returnable += "Waiting Avg: " + (waitingTotal / processList.size()) + "/n";
-		returnable += "Responce Avg:" + (responceTotal / processList.size()) + "/n";
+		returnable += "response Avg:" + (responseTotal / processList.size()) + "/n";
 		return returnable; 
 	}
 }
