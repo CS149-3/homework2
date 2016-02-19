@@ -36,5 +36,5 @@
 
 # Debug files
 *.dSYM/
-/Process.class
-/Result.class
+
+*.class
