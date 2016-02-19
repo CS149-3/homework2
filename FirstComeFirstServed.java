@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class FirstComeFirstServed implements Executable, Comparable<processes> {
+public class FirstComeFirstServed implements Executable, Comparable<Process> {
 
 	@Override
 	public Result execute(ArrayList<Process> processes) {
