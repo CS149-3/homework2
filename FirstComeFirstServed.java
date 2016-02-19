@@ -8,5 +8,16 @@ public class FirstComeFirstServed implements Executable {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	/**
+	 * Reuired by Comparable interface. Implemented so Processes can
+	 * be sorted by their arrival time
+	 */
+	public int compareTo(Process other)
+	{
+		if (arrivalNum < other.arrivalNum) return -1;
+		if (arrivalNum == other.arrivalNum) return 0;
+		return 1;
+	}
 
 }
