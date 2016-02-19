@@ -38,9 +38,9 @@ public class Result {
 			returnable += processList.get(i) + "/n";
 		}
 		
-		returnable += "Turnaround Avg: " + (turnaroundTotal / processList.size()) +"/n";
-		returnable += "Waiting Avg: " + (waitingTotal / processList.size()) + "/n";
-		returnable += "response Avg:" + (responseTotal / processList.size()) + "/n";
+		returnable += "Turnaround Avg: " + (turnaroundTotal / processList.size()) +"\n";
+		returnable += "Waiting Avg: " + (waitingTotal / processList.size()) + "\n";
+		returnable += "response Avg:" + (responseTotal / processList.size()) + "\n";
 		return returnable; 
 	}
 }
