@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 
-
+/*
+* Non-Preemptive batch algoritm that assumes the run times are known
+* in advance.
+*/
 public class ShortestJobFirst implements Executable {
 
 	@Override
