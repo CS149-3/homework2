@@ -1,4 +1,4 @@
-public class Process implements Comparable<Process> {
+public class Process {
 	private String name;
 	private int priority;
 	private float arrivalNum;
@@ -62,8 +62,7 @@ public class Process implements Comparable<Process> {
 	}
 	
 	public void reset() {
-		timeLeft = runTime;
-		startTime = 0;
+		timeLeft = runTim		startTime = 0;
 		endTime = 0;
 	}
 	
@@ -71,18 +70,6 @@ public class Process implements Comparable<Process> {
 	//public void outputResults(Result output){
 	//	output.outputResults((endTime - startTime), (endTime - startTime - runTime), 0);
 	//}
-	
-	
-	/**
-	 * Reuired by Comparable interface. Implemented so Processes can
-	 * be sorted by their arrival time
-	 */
-	public int compareTo(Process other)
-	{
-		if (arrivalNum < other.arrivalNum) return -1;
-		if (arrivalNum == other.arrivalNum) return 0;
-		return 1;
-	}
 	
 	public String toString(){
 		String returnable = "Process " + name + "\n";
