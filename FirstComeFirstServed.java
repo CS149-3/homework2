@@ -13,11 +13,12 @@ public class FirstComeFirstServed implements Executable, Comparable<Process> {
 	 * Reuired by Comparable interface. Implemented so Processes can
 	 * be sorted by their arrival time
 	 */
-	public int compareTo(Process other)
+	public int compareTo(Process a, Process other)
 	{
-		if (arrivalNum < other.arrivalNum) return -1;
-		if (arrivalNum == other.arrivalNum) return 0;
+		if (a.getArrivalNum() < other.getArrivalNum()) return -1;
+		if (a.getArrivalNum() == other.getArrivalNum()) return 0;
 		return 1;
 	}
 
 }
+

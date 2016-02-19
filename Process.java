@@ -46,6 +46,10 @@ public class Process {
 		return priority;
 	}
 	
+	public float getArrivalNum(){
+		return arrivalNum;
+	}
+	
 	public void start(float startQuanta){
 		startTime = startQuanta;
 	}
