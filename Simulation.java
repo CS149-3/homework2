@@ -11,23 +11,27 @@ public class Simulation {
 		
 		// 1. run First-come first served
 		Result fcfs = new FirstComeFirstServed().execute(processes);
-		
 		resetProcesses();
 		
 		// 2. run Shortest job first
 		Result sjf = new ShortestJobFirst().execute(processes);
+		resetProcesses();
 		
 		// 3. run Shortest remaining time
 		Result smt = new ShortestRemainingTime().execute(processes);
+		resetProcesses();
 		
 		// 4. run Round robin
 		Result rr = new RoundRobin().execute(processes);
+		resetProcesses();
 		
 		// 5. run Highest priority first (preemptive)
 		Result hpfp = new HighestPriorityFirstPreemptive().execute(processes);
+		resetProcesses();
 		
 		// 6. run Highest priority first (non-preemptive)
 		Result hpfnp = new HighestPriorityFirstNonPreemptive().execute(processes);
+		resetProcesses();
 		
 		//print results (if we don't just change the above to execute in println's)
 		
