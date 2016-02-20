@@ -1,3 +1,5 @@
+package homework2;
+
 import java.util.Comparator;
 
 public class Process implements Comparable<Process>, Comparator<Process> {
