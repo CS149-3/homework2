@@ -31,7 +31,7 @@ public class Result {
 	}
 	
 	/**
-	 * Input the average run results for your algorithm. Calculate these values on your own.
+	 * Input the average run results for your algorithm. Calculate these values on your own as your algorithm runs.
 	 * 
 	 * @param turnaround
 	 * @param waiting
