@@ -6,35 +6,45 @@ public class Simulation {
 	public static ArrayList<Process> processes = new ArrayList<Process>();
 	
 	public static void main(String[] args) {
-		// generate processes (processes should only be generated once!)
-		generateProcesses(20);
-		
-		// 1. run First-come first served
-		Result fcfs = new FirstComeFirstServed().execute(processes);
-		resetProcesses();
-		
-		// 2. run Shortest job first
-		Result sjf = new ShortestJobFirst().execute(processes);
-		resetProcesses();
-		
-		// 3. run Shortest remaining time
-		Result smt = new ShortestRemainingTime().execute(processes);
-		resetProcesses();
-		
-		// 4. run Round robin
-		Result rr = new RoundRobin().execute(processes);
-		resetProcesses();
-		
-		// 5. run Highest priority first (preemptive)
-		Result hpfp = new HighestPriorityFirstPreemptive().execute(processes);
-		resetProcesses();
-		
-		// 6. run Highest priority first (non-preemptive)
-		Result hpfnp = new HighestPriorityFirstNonPreemptive().execute(processes);
-		resetProcesses();
-		
-		//print results (if we don't just change the above to execute in println's)
-		
+		for (int i = 0; i < 5; i++) {
+			// generate processes (processes should only be generated once per run!)
+			generateProcesses(20);
+			
+			// 1. run First-come first served
+			Result fcfs = new FirstComeFirstServed().execute(processes);
+			resetProcesses();
+			
+			// 2. run Shortest job first
+			Result sjf = new ShortestJobFirst().execute(processes);
+			resetProcesses();
+			
+			// 3. run Shortest remaining time
+			Result srt = new ShortestRemainingTime().execute(processes);
+			resetProcesses();
+			
+			// 4. run Round robin
+			Result rr = new RoundRobin().execute(processes);
+			resetProcesses();
+			
+			// 5. run Highest priority first (preemptive)
+			Result hpfp = new HighestPriorityFirstPreemptive().execute(processes);
+			resetProcesses();
+			
+			// 6. run Highest priority first (non-preemptive)
+			Result hpfnp = new HighestPriorityFirstNonPreemptive().execute(processes);
+			resetProcesses();
+			
+			//print results (if we don't just change the above to execute in println's)
+			System.out.println("\n Run " + (i + 1) + " \n");
+			System.out.println(processes);
+			
+			System.out.println(fcfs);
+			System.out.println(sjf);
+			System.out.println(srt);
+			System.out.println(rr);
+			System.out.println(hpfp);
+			System.out.println(hpfnp);
+		}
 	}
 
 	private static void generateProcesses(int numProcesses) {
