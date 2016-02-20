@@ -1,11 +1,15 @@
-public class Process {
+import java.util.Comparator;
+
+public class Process implements Comparable<Process>, Comparator<Process> {
 	private String name;
 	private int priority;
 	private float arrivalNum;
-	private float runTime;
+	private float runTime; //expected run time
 	private float timeLeft;
 	private float startTime;
 	private float endTime;
+	
+	public Process(){}
 	
 	public Process(String name, int priority, float arrival_num, float run_time){
 		this.name = name;
@@ -42,12 +46,13 @@ public class Process {
 		this.timeLeft = runTime;
 	}
 	
-	public int getPriority(){
-		return priority;
+	public float getEstRunTime()
+	{
+		return runTime;
 	}
 	
-	public float getArrivalNum(){
-		return arrivalNum;
+	public int getPriority(){
+		return priority;
 	}
 	
 	public void start(float startQuanta){
@@ -66,7 +71,8 @@ public class Process {
 	}
 	
 	public void reset() {
-		timeLeft = runTim		startTime = 0;
+		timeLeft = runTime;
+		startTime = 0;
 		endTime = 0;
 	}
 	
@@ -74,6 +80,25 @@ public class Process {
 	//public void outputResults(Result output){
 	//	output.outputResults((endTime - startTime), (endTime - startTime - runTime), 0);
 	//}
+	
+	
+	/**
+	 * Reuired by Comparable interface. Implemented so Processes can
+	 * be sorted by their arrival time
+	 */
+	public int compareTo(Process other)
+	{
+		if (arrivalNum < other.arrivalNum) return -1;
+		if (arrivalNum == other.arrivalNum) return 0;
+		return 1;
+	}
+	
+	public int compare(Process a, Process b)
+	{
+		if(a.getEstRunTime() < b.getEstRunTime())return -1;
+		if(a.getEstRunTime() == b.getEstRunTime()) return 0;
+		return 1;
+	}
 	
 	public String toString(){
 		String returnable = "Process " + name + "\n";
@@ -88,3 +113,4 @@ public class Process {
 	
 	
 }
+
