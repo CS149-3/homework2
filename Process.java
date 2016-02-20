@@ -1,4 +1,4 @@
-public class Process {
+public class Process implements Comparable<Process>{
 	private String name;
 	private int priority;
 	private float arrivalNum;
@@ -66,8 +66,22 @@ public class Process {
 	}
 	
 	public void reset() {
-		timeLeft = runTim		startTime = 0;
+		timeLeft = runTime;		
+		startTime = 0;
 		endTime = 0;
+	}
+	
+	public int compareTo(Process p1){
+		float f1 = ((Process)p1).getArrivalNum();
+		if(arrivalNum<f1){
+			return -1;
+		}
+		else if(arrivalNum>f1){
+			return 1;
+		}
+		else{
+			return 0;
+		}
 	}
 	
 	//need to address response field and determine what to pass. 
@@ -85,6 +99,5 @@ public class Process {
 		returnable += "\tEnd Time: " + endTime + "\n";
 		return returnable;
 	}
-	
-	
+
 }
