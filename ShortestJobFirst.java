@@ -1,3 +1,5 @@
+//package homework2;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -13,6 +15,12 @@ public class ShortestJobFirst implements Executable
 	{
 		//Sort the list of Processes by estimated run time
 		Collections.sort(processes, new Process());
+		
+		//Run for 100 Quanta
+		for(int i = 0; i < 100; i++)
+		{
+			
+		}
 		
 		for(Process s : processes)
 		{
