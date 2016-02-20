@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class FirstComeFirstServed implements Executable{
 	Result result = new Result();
 	float turnAroundTotal=0;
@@ -6,7 +8,8 @@ public class FirstComeFirstServed implements Executable{
 	float averageWaiting=0;
 	float responseTimeTotal=0;
 	float averageResponseTime=0;
-	@Override
+	float numberProcessesCompleted=0;
+	float throughPut=0;
 	public Result execute(ArrayList<Process> processes) {
 		processes.sort(Process.compareByArrival());
 		for(int i=0;i<processes.size();i++){
@@ -20,8 +23,12 @@ public class FirstComeFirstServed implements Executable{
 			}
 			responseTimeTotal=responseTimeTotal+processes.get(i).getRunTime();
 			averageResponseTime=responseTimeTotal/(i+1);
+			if(responseTimeTotal<=100){
+				numberProcessesCompleted++;
+			}
 		}
-		result.runResults(averageTurnAround, averageWaiting, averageResponseTime);	
+		throughPut=numberProcessesCompleted/100;
+		result.runResults(averageTurnAround, averageWaiting, averageResponseTime, throughPut);	
 		return result;
 	}
 }
