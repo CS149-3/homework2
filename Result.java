@@ -7,6 +7,7 @@ public class Result {
 	private float averageTurnaround;
 	private float averageWaiting;
 	private float averageResponseTime;
+	private float throughPut;
 	
 	
 	public Result(){
@@ -25,10 +26,11 @@ public class Result {
 		processList.add(process);
 	}
 	
-	public void runResults(float turnaround, float waiting, float response){
+	public void runResults(float turnaround, float waiting, float response, float throughput){
 		averageTurnaround = turnaround;
 		averageWaiting = waiting;
 		averageResponseTime = response;
+		throughPut=throughput;
 	}
 	
 	public String toString(){
@@ -41,6 +43,7 @@ public class Result {
 		returnable += "Turnaround Avg: " + averageTurnaround +"\n";
 		returnable += "Waiting Avg: " + averageWaiting + "\n";
 		returnable += "Response Avg:" + averageResponseTime + "\n";
+		returnable += "Throughput: " + throughPut + "\n";
 		
 		return returnable; 
 	}
