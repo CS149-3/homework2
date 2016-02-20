@@ -11,9 +11,13 @@ public class FirstComeFirstServed implements Executable, Comparator<Float>{
 	}
 	
 	public void print(ArrayList<Process> processes){
+		System.out.println("size: "+ processes.size());
 		sort(processes);
 		for(int i=0;i<processes.size();i++){
-			System.out.println(processes.get(i));
+			System.out.println("Process1: "+ processes.get(i));
+			System.out.println("Process2: "+ processes.get(i+1));
+			System.out.println("compare: "+compare(processes.get(i).getArrivalNum(), processes.get(i+1).getArrivalNum()));
+			//System.out.println(processes.get(i));
 		}
 	}
 	
