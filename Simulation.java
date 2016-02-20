@@ -43,7 +43,9 @@ public class Simulation {
 		Random random = new Random();
 		
 		for (int i = 0; i < numProcesses; i++) {
-			processes.add(new Process(Character.toString((char) ('A' + i)), random.nextInt(4) + 1, random.nextFloat() * 100, random.nextFloat() * 10 + 0.1f));
+			float runTime = random.nextFloat() * 10;
+			if(runTime < 9.9f) runTime += 0.1f;
+			processes.add(new Process(Character.toString((char) ('A' + i)), random.nextInt(4) + 1, random.nextFloat() * 100, runTime));
 		}
 	}
 	
