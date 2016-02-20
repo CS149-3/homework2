@@ -14,7 +14,7 @@ public class ShortestJobFirst implements Executable
 	public Result execute(ArrayList<Process> processes) 
 	{
 		//Sort the list of Processes by estimated run time
-		Collections.sort(processes, new Process());
+		processes.sort(Process.compareByRunTime());
 		
 		//Run for 100 Quanta
 		for(int i = 0; i < 100; i++)

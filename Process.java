@@ -2,16 +2,14 @@ package homework2;
 
 import java.util.Comparator;
 
-public class Process implements Comparable<Process>, Comparator<Process> {
+public class Process {
 	private String name;
 	private int priority;
 	private float arrivalNum;
-	private float runTime; //expected run time
+	private float runTime;
 	private float timeLeft;
 	private float startTime;
 	private float endTime;
-	
-	public Process(){}
 	
 	public Process(String name, int priority, float arrival_num, float run_time){
 		this.name = name;
@@ -48,13 +46,20 @@ public class Process implements Comparable<Process>, Comparator<Process> {
 		this.timeLeft = runTime;
 	}
 	
-	public float getEstRunTime()
-	{
-		return runTime;
-	}
-	
 	public int getPriority(){
 		return priority;
+	}
+	
+	public float getArrivalNum(){
+		return arrivalNum;
+	}
+	
+	public float getTimeLeft() {
+		return timeLeft;
+	}
+	
+	public float getRunTime() {
+		return runTime;
 	}
 	
 	public void start(float startQuanta){
@@ -83,25 +88,6 @@ public class Process implements Comparable<Process>, Comparator<Process> {
 	//	output.outputResults((endTime - startTime), (endTime - startTime - runTime), 0);
 	//}
 	
-	
-	/**
-	 * Reuired by Comparable interface. Implemented so Processes can
-	 * be sorted by their arrival time
-	 */
-	public int compareTo(Process other)
-	{
-		if (arrivalNum < other.arrivalNum) return -1;
-		if (arrivalNum == other.arrivalNum) return 0;
-		return 1;
-	}
-	
-	public int compare(Process a, Process b)
-	{
-		if(a.getEstRunTime() < b.getEstRunTime())return -1;
-		if(a.getEstRunTime() == b.getEstRunTime()) return 0;
-		return 1;
-	}
-	
 	public String toString(){
 		String returnable = "Process " + name + "\n";
 		returnable += "\tPriority: " + priority + "\n";
@@ -113,6 +99,69 @@ public class Process implements Comparable<Process>, Comparator<Process> {
 		return returnable;
 	}
 	
+	// First Come First Served
+	public static Comparator<Process> compareByArrival() {
+		return new ArrivalComparator();
+	}
 	
+	// Highest Priority First ? might depend on preemptive/non preemptive
+	public static Comparator<Process> compareByPriority() {
+		return new PriorityComparator();
+	}
+	
+	// Shortest Remaining Time
+	public static Comparator<Process> compareByTimeLeft() {
+		return new TimeLeftComparator();
+	}
+	
+	// Shortest Job First
+	public static Comparator<Process> compareByRunTime() {
+		return new RunTimeComparator();
+	}
+	
+	private static class ArrivalComparator implements Comparator<Process> {
+		
+		@Override
+		public int compare(Process p1, Process p2) {
+			if (p1.getArrivalNum() < p2.getArrivalNum()) return -1;
+			else if (p1.getArrivalNum() == p2.getArrivalNum()) return 0;
+			else return 1;
+		}
+		
+	}
+	
+	private static class PriorityComparator implements Comparator<Process> {
+		
+		@Override
+		public int compare(Process p1, Process p2) {
+			if (p1.getPriority() < p2.getPriority()) return -1;
+			else if (p1.getPriority() == p2.getPriority()) return 0;
+			else return 1;
+		}
+		
+	}
+	
+	private static class TimeLeftComparator implements Comparator<Process> {
+		
+		@Override
+		public int compare(Process p1, Process p2) {
+			if (p1.getTimeLeft() < p2.getTimeLeft()) return -1;
+			else if (p1.getTimeLeft() == p2.getTimeLeft()) return 0;
+			else return 1;
+		}
+		
+	}
+	
+	private static class RunTimeComparator implements Comparator<Process> {
+		
+		@Override
+		public int compare(Process p1, Process p2) {
+			if (p1.getRunTime() < p2.getRunTime()) return -1;
+			else if (p1.getRunTime() == p2.getRunTime()) return 0;
+			else return 1;
+		}
+		
+	}
 }
+
 
