@@ -60,6 +60,14 @@ public class Process {
 		return runTime;
 	}
 	
+	public void setPriority(int newPriority) {
+		this.priority = newPriority;
+	}
+	
+	public void setTimeLeft(float newTimeLeft) {
+		this.timeLeft = newTimeLeft;
+	}
+	
 	public void start(float startQuanta){
 		startTime = startQuanta;
 	}
