@@ -62,6 +62,11 @@ public class Process {
 		return runTime;
 	}
 	
+	public float getEndTime()
+	{
+		return endTime;
+	}
+	
 	public void start(float startQuanta){
 		startTime = startQuanta;
 	}
