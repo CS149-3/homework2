@@ -15,7 +15,8 @@ public class FirstComeFirstServed implements Executable{
 		processes.sort(Process.compareByArrival());
 		ArrayList<String> quanta = quantaForTimeChart(processes);
 		for(int i=0;i<processes.size();i++){
-			result.addProcess(processes.get(i));
+			// no longer add processes to result
+//			result.addProcess(processes.get(i));
 			//result.addChart(processes.get(i).getName());
 			turnAroundTotal=turnAroundTotal+turnAroundTotal+processes.get(i).getRunTime();
 			averageTurnAround=turnAroundTotal/(i+1);

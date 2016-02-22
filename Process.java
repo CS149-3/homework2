@@ -8,6 +8,8 @@ public class Process {
 	private float timeLeft;
 	private float startTime;
 	private float endTime;
+	private float timeEnterQ;
+	private float waitTime;
 	
 	public Process(String name, int priority, float arrival_num, float run_time){
 		this.name = name;
@@ -29,6 +31,7 @@ public class Process {
 		*/
 		
 		this.arrivalNum = arrival_num;
+		this.timeEnterQ = arrival_num;
 		
 		/**
 		 *  my code generates from .1 to 10.1 repeating, if you want to modify that to make this not fail most of the time,
@@ -44,6 +47,22 @@ public class Process {
 		this.timeLeft = runTime;
 	}
 	
+	/**
+	 * Copy constructor
+	 * @param parent
+	 */
+	public Process(Process parent) {
+		this.name = parent.name;
+		this.priority = parent.priority;
+		this.arrivalNum = parent.arrivalNum;
+		this.runTime = parent.runTime;
+		this.timeLeft = parent.timeLeft;
+		this.startTime = parent.startTime;
+		this.endTime = parent.endTime;
+		this.timeEnterQ = parent.timeEnterQ;
+		this.waitTime = parent.waitTime;
+	}
+	
 	public int getPriority(){
 		return priority;
 	}
@@ -56,12 +75,36 @@ public class Process {
 		return name;
 	}
 	
+	public float getTimeEnterQ() {
+		return timeEnterQ;
+	}
+	
 	public float getTimeLeft() {
 		return timeLeft;
 	}
 	
 	public float getRunTime() {
 		return runTime;
+	}
+	
+	public float getWaitTime() {
+		return waitTime;
+	}
+	
+	public void setPriority(int newPriority) {
+		this.priority = newPriority;
+	}
+	
+	public void setTimeLeft(float newTimeLeft) {
+		this.timeLeft = newTimeLeft;
+	}
+	
+	public void setTimeEnterQ(float newTimeEnterQ) {
+		this.timeEnterQ = newTimeEnterQ;
+	}
+	
+	public void setWaitTime(float newWaitTime) {
+		this.waitTime = newWaitTime;
 	}
 	
 	public void start(float startQuanta){
