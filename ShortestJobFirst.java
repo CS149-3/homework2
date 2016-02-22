@@ -1,29 +1,17 @@
 package homework2;
-
 import java.util.ArrayList;
 
-/*
-* Non-Preemptive batch algorithm that assumes the run times are known
-* in advance.
-*/
+//Non-Preemptive batch algorithm.Assumes run times are known in advance.
+
 public class ShortestJobFirst implements Executable
 {
-
 	@Override
 	public Result execute(ArrayList<Process> processes) 
 	{
 		//Sort the list of Processes by estimated run time
 		processes.sort(Process.compareByRunTime());
 		
-		/*
-		 * Run each algorithm for 100 quanta (time slices)
-		 * Each algorithm should run until the completion
-		 * of the last process, even if it goes beyond 100
-		 * quanta. No process should get the CPU for the
-		 * first time after time quanta 99.
-		 */
-		
-		//initialization
+		//Setup and initialization
 		float i = 0; //time slice unit (quanta)
 		float runTime = 0;
 		int numProcesses = processes.size();
@@ -31,8 +19,7 @@ public class ShortestJobFirst implements Executable
 		Process p = processes.get(0); //get the first process
 		p.start(i);
 		
-		//Start the SJF algorithm
-		do
+		do//Start the SJF algorithm
 		{
 			if(runTime >= p.getRunTime())
 			{
@@ -51,13 +38,11 @@ public class ShortestJobFirst implements Executable
 			
 		}while(processes.get(numProcesses - 1).getEndTime() <= 0);
 		
-		
-		
+	
 		for(Process s : processes)
 		{
 			System.out.println(s.toString());
 		}
 		return null;
 	}
-
 }

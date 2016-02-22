@@ -10,15 +10,16 @@ public class Simulation {
 	public static void main(String[] args) {
 		// generate processes (processes should only be generated once!)
 		generateProcesses(20);
-		
+	/*	
 		// 1. run First-come first served
 		Result fcfs = new FirstComeFirstServed().execute(processes);
 		resetProcesses();
+	*/
 		
 		// 2. run Shortest job first
 		Result sjf = new ShortestJobFirst().execute(processes);
 		resetProcesses();
-		
+	/*	
 		// 3. run Shortest remaining time
 		Result smt = new ShortestRemainingTime().execute(processes);
 		resetProcesses();
@@ -34,7 +35,7 @@ public class Simulation {
 		// 6. run Highest priority first (non-preemptive)
 		Result hpfnp = new HighestPriorityFirstNonPreemptive().execute(processes);
 		resetProcesses();
-		
+	*/
 		//print results (if we don't just change the above to execute in println's)
 		
 	}
