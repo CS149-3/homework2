@@ -47,6 +47,22 @@ public class Process {
 		this.timeLeft = runTime;
 	}
 	
+	/**
+	 * Copy constructor
+	 * @param parent
+	 */
+	public Process(Process parent) {
+		this.name = parent.name;
+		this.priority = parent.priority;
+		this.arrivalNum = parent.arrivalNum;
+		this.runTime = parent.runTime;
+		this.timeLeft = parent.timeLeft;
+		this.startTime = parent.startTime;
+		this.endTime = parent.endTime;
+		this.timeEnterQ = parent.timeEnterQ;
+		this.waitTime = parent.waitTime;
+	}
+	
 	public int getPriority(){
 		return priority;
 	}
