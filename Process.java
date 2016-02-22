@@ -55,6 +55,10 @@ public class Process {
 		return arrivalNum;
 	}
 	
+	public String getName(){
+		return name;
+	}
+	
 	public float getTimeEnterQ() {
 		return timeEnterQ;
 	}
