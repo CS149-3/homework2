@@ -8,31 +8,32 @@ public class Simulation {
 	public static void main(String[] args) {
 		for (int i = 0; i < 5; i++) {
 			// generate processes (processes should only be generated once per run!)
+			processes.clear();
 			generateProcesses(20);
 			
 			// 1. run First-come first served
 			Result fcfs = new FirstComeFirstServed().execute(processes);
-			resetProcesses();
+			//resetProcesses();
 			
 			// 2. run Shortest job first
 			Result sjf = new ShortestJobFirst().execute(processes);
-			resetProcesses();
+			//resetProcesses();
 			
 			// 3. run Shortest remaining time
 			Result srt = new ShortestRemainingTime().execute(processes);
-			resetProcesses();
+			//resetProcesses();
 			
 			// 4. run Round robin
 			Result rr = new RoundRobin().execute(processes);
-			resetProcesses();
+			//resetProcesses();
 			
 			// 5. run Highest priority first (preemptive)
 			Result hpfp = new HighestPriorityFirstPreemptive().execute(processes);
-			resetProcesses();
+			//resetProcesses();
 			
 			// 6. run Highest priority first (non-preemptive)
 			Result hpfnp = new HighestPriorityFirstNonPreemptive().execute(processes);
-			resetProcesses();
+			//resetProcesses();
 			
 			//print results (if we don't just change the above to execute in println's)
 			System.out.println("\n Run " + (i + 1) + " \n");
