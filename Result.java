@@ -40,6 +40,7 @@ public class Result {
 	 * @param turnaround
 	 * @param waiting
 	 * @param response
+	 * @param throughput
 	 */
 	public void runResults(float turnaround, float waiting, float response, float throughput){
 		averageTurnaround = turnaround;
