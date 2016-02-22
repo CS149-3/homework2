@@ -47,6 +47,10 @@ public class Process {
 		this.timeLeft = runTime;
 	}
 	
+	public String getName(){
+		return name;
+	}
+	
 	public int getPriority(){
 		return priority;
 	}
@@ -69,6 +73,10 @@ public class Process {
 	
 	public float getWaitTime() {
 		return waitTime;
+	}
+	
+	public float getEndTime(){
+		return endTime;
 	}
 	
 	public void setPriority(int newPriority) {
