@@ -59,7 +59,8 @@ public class FirstComeFirstServed implements Executable{
 				else{
 					unitsToAddString=(int) (totalTime+processes.get(processesIndex).getRunTime()-quanta.size())+1;
 				}
-				System.out.println("unitsToAddString: "+unitsToAddString);
+				// removing line of debug, clean final output
+//				System.out.println("unitsToAddString: "+unitsToAddString);
 				for(int i=0;i<unitsToAddString;i++){
 					if(i==0 && quantaIndex!=0 && totalTime>quantaIndex-1 && quanta.get(quantaIndex-1)!=null){
 						quanta.set(quantaIndex-1, quanta.get(quantaIndex-1)+processes.get(processesIndex).getName());
