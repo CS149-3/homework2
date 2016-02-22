@@ -41,16 +41,24 @@ public class ShortestRemainingTime implements Executable {
 
 		do {
 			Predicate<Process> hasArrived = hasArrivedPredicateMaker(i);
+			ArrayList<Process> temp;
 			if (p != null) {
 				p.decrement(0.1f, i);
+				result.addChart(p.getName());
 			}
-			ArrayList<Process> temp = (ArrayList<Process>) processes.stream()
+			
+			if ((temp = (ArrayList<Process>) processes.stream()
 					.filter(hasArrived).filter(notDone)
-					.collect(Collectors.toList());
-			if (temp.size() > 0) {
-				p = temp.get(0);
-				p.start(i);
+					.collect(Collectors.toList())).size() > 0) { //If the ArrayList (containing all arrived and not done processes sorted by remaining time, now stored in temp) has size greater than zero
+				p = temp.get(0); 	/*assign the first element in temp to p
+				 					*(This should be the element with the shortest time remaining 
+									* after filtering out processes that have already completed and
+									* processes that have not yet "arrived" */
+				p.start(i);			//Start p [ISSUE: need to stop processes from getting restarted]
+				result.addChart(p.getName());
 			}
+			
+			
 
 			i += 0.1;
 		} while (processes.stream().filter(notDone).collect(Collectors.toList()).size() != 0);
