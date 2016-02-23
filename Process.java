@@ -1,5 +1,3 @@
-package homework2;
-
 import java.util.Comparator;
 
 public class Process {
@@ -10,6 +8,8 @@ public class Process {
 	private float timeLeft;
 	private float startTime;
 	private float endTime;
+	private float timeEnterQ;
+	private float waitTime;
 	
 	public Process(String name, int priority, float arrival_num, float run_time){
 		this.name = name;
@@ -31,6 +31,7 @@ public class Process {
 		*/
 		
 		this.arrivalNum = arrival_num;
+		this.timeEnterQ = arrival_num;
 		
 		/**
 		 *  my code generates from .1 to 10.1 repeating, if you want to modify that to make this not fail most of the time,
@@ -46,6 +47,22 @@ public class Process {
 		this.timeLeft = runTime;
 	}
 	
+	/**
+	 * Copy constructor
+	 * @param parent
+	 */
+	public Process(Process parent) {
+		this.name = parent.name;
+		this.priority = parent.priority;
+		this.arrivalNum = parent.arrivalNum;
+		this.runTime = parent.runTime;
+		this.timeLeft = parent.timeLeft;
+		this.startTime = parent.startTime;
+		this.endTime = parent.endTime;
+		this.timeEnterQ = parent.timeEnterQ;
+		this.waitTime = parent.waitTime;
+	}
+	
 	public int getPriority(){
 		return priority;
 	}
@@ -58,32 +75,53 @@ public class Process {
 	{
 		arrivalNum = f;
 	}
-		
+	
+	public String getName(){
+		return name;
+	}
+	
+	public float getTimeEnterQ() {
+		return timeEnterQ;
+	}
+	
 	public float getTimeLeft() {
 		return timeLeft;
+	}
+	
+	public float getStartTime() {
+		return startTime;
+	}
+	
+	public float getEndTime() {
+		return endTime;
 	}
 	
 	public float getRunTime() {
 		return runTime;
 	}
 	
-	public float getEndTime()
-	{
-		return endTime;
+	public float getWaitTime() {
+		return waitTime;
 	}
 	
-	public String getName()
-	{
-		return name;
+	public void setPriority(int newPriority) {
+		this.priority = newPriority;
+	}
+	
+	public void setTimeLeft(float newTimeLeft) {
+		this.timeLeft = newTimeLeft;
+	}
+	
+	public void setTimeEnterQ(float newTimeEnterQ) {
+		this.timeEnterQ = newTimeEnterQ;
+	}
+	
+	public void setWaitTime(float newWaitTime) {
+		this.waitTime = newWaitTime;
 	}
 	
 	public void start(float startQuanta){
 		startTime = startQuanta;
-	}
-	
-	public float getStartTime()
-	{
-		return startTime;
 	}
 	
 	public void decrement(float ranTime, float currentQuanta){
@@ -102,11 +140,6 @@ public class Process {
 		startTime = 0;
 		endTime = 0;
 	}
-	
-	//need to address response field and determine what to pass. 
-	//public void outputResults(Result output){
-	//	output.outputResults((endTime - startTime), (endTime - startTime - runTime), 0);
-	//}
 	
 	public String toString(){
 		String returnable = "Process " + name + "\n";
@@ -183,5 +216,4 @@ public class Process {
 		
 	}
 }
-
 

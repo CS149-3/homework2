@@ -1,4 +1,3 @@
-package homework2;
 import java.util.ArrayList;
 
 //Non-Preemptive batch algorithm.Assumes run times are known in advance.
@@ -91,13 +90,13 @@ public class ShortestJobFirst implements Executable
 		}while((processes.get(numProcesses - 1).getEndTime() <= 0) || (runNext == false) || i < 99);
 		
 		
-		//System.out.println("Throughput Value = " + i); //The throughput is the final quanta of the last Process
+		System.out.println("Throughput Value = " + i); //The throughput is the final quanta of the last Process
 		//Fill the Result processList with the current list of Processes
-		for(Process t : processes)
-		{
-			String list = t.toString();
-			r.addProcess(list);
-		}
+//		for(Process t : processes)
+//		{
+//			String list = t.toString();
+//			r.addProcess(list);
+//		}
 		int count = 1;
 		float turnAround = 0f;
 		float waitTimeTotal = 0f;
@@ -110,9 +109,7 @@ public class ShortestJobFirst implements Executable
 			//System.out.println(count + " " + s.toString());
 			count++;
 		}
-		r.setTurnAround(turnAround);
-		r.setWaitingTotal(waitTimeTotal);
-		r.setResponseTotal(responseTimeTotal);
+		r.runResults(turnAround / processes.size(), waitTimeTotal / processes.size(), responseTimeTotal / processes.size(), processes.size() / i);
 		
 		//System.out.println("End time of last " + running.get(numProcesses - 1).getEndTime());
 
