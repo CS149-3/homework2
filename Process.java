@@ -11,11 +11,12 @@ public class Process {
 	private float endTime;
 	private float timeEnterQ;
 	private float waitTime;
-        private float burstTime;
+	private boolean hasStarted;
+	private float burstTime;
 	
 	public Process(String name, int priority, float arrival_num, float run_time){
 		this.name = name;
-		
+		this.hasStarted = false;
 		if(priority < 0 || priority > 5){
 			throw new RuntimeException("Invalid priority value");
 		}
@@ -46,7 +47,9 @@ public class Process {
 		*/
 		
 		this.runTime = run_time;
-		this.timeLeft = runTime;
+		this.timeLeft = run_time;
+		Random random = new Random();
+		this.burstTime = (float) random.nextInt(4)*+1;
 	}
 	
 	/**
@@ -63,9 +66,7 @@ public class Process {
 		this.endTime = parent.endTime;
 		this.timeEnterQ = parent.timeEnterQ;
 		this.waitTime = parent.waitTime;
-                /*initialized bursttime variable*/
-                Random rand = new Random();
-                this.burstTime = (float) rand.nextInt(4)*+1;
+		this.burstTime = parent.burstTime;
 	}
 	
 	public int getPriority(){
@@ -74,6 +75,11 @@ public class Process {
 	
 	public float getArrivalNum(){
 		return arrivalNum;
+	}
+	
+	public void setArrivalNum(float f)
+	{
+		arrivalNum = f;
 	}
 	
 	public String getName(){
@@ -88,12 +94,32 @@ public class Process {
 		return timeLeft;
 	}
 	
+	public float getStartTime() {
+		return startTime;
+	}
+	
+	public float getEndTime() {
+		return endTime;
+	}
+	
 	public float getRunTime() {
 		return runTime;
 	}
 	
 	public float getWaitTime() {
 		return waitTime;
+	}
+	
+	public boolean hasStarted(){
+		return hasStarted;
+	}
+	
+	public float getBurstTime() {
+		return burstTime;
+	}
+	
+	public void incrementWaitingTime() {
+		waitTime += 1;
 	}
 	
 	public void setPriority(int newPriority) {
@@ -112,35 +138,13 @@ public class Process {
 		this.waitTime = newWaitTime;
 	}
 	
-        /*added burst time functions*/
-        public float getBurstTime(){
-            return burstTime;
-        }
- 
-        public void changePriority(int newPriority){
-            priority = newPriority;
-        }
-        
-        public void changeBurstTime(float newBurstTime){
-            burstTime = newBurstTime;
-        }
- 
-        public void changeArrivalTime(float newArrivalTime){
-            arrivalNum = newArrivalTime;
-        }
-        //since the time quantum is one, add one everytime to the process waiting time
-        public void changeWaitingTime(){
-            this.waitTime +=1;
-        }
- 
-        //after 1 time quantum, deducted the burst for all processes in the queue
-        public void subtractTime(){
-            this.burstTime -= 1;
-        }
-        /**/
-        
+	public void setBurstTime(float newBurstTime) {
+		burstTime = newBurstTime;
+	}
+	
 	public void start(float startQuanta){
 		startTime = startQuanta;
+		hasStarted = true;
 	}
 	
 	public void decrement(float ranTime, float currentQuanta){
@@ -159,11 +163,6 @@ public class Process {
 		startTime = 0;
 		endTime = 0;
 	}
-	
-	//need to address response field and determine what to pass. 
-	//public void outputResults(Result output){
-	//	output.outputResults((endTime - startTime), (endTime - startTime - runTime), 0);
-	//}
 	
 	public String toString(){
 		String returnable = "Process " + name + "\n";
@@ -240,3 +239,4 @@ public class Process {
 		
 	}
 }
+
