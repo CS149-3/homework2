@@ -42,14 +42,18 @@ public class ShortestJobFirst implements Executable
 		//No Processes running up until the lowest arrival time
 		for(int j = 0; j < i - 1; j++)
 		{
-			q = "Quanta " + j + ": No processes running yet"+System.getProperty("line.separator");
+			// nice output, but changing to match the others
+//			q = "Quanta " + j + ": No processes running yet"+System.getProperty("line.separator");
+			q = "";
 			r.addChart(q);
 		}
 		
 		
 		do
 		{
-			q = "Quanta " + Math.floor(i) + ": " + running.get(run).getName() + System.getProperty("line.separator");
+			// nice output, but changing to match the others
+//			q = "Quanta " + Math.floor(i) + ": " + running.get(run).getName() + System.getProperty("line.separator");
+			q = running.get(run).getName();
 			r.addChart(q);
 	
 			//advance quanta and runTime counter
