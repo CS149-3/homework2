@@ -90,7 +90,7 @@ public class ShortestJobFirst implements Executable
 		}while((processes.get(numProcesses - 1).getEndTime() <= 0) || (runNext == false) || i < 99);
 		
 		
-		System.out.println("Throughput Value = " + i); //The throughput is the final quanta of the last Process
+		//System.out.println("Throughput Value = " + i); //The throughput is the final quanta of the last Process
 		//Fill the Result processList with the current list of Processes
 //		for(Process t : processes)
 //		{
@@ -115,7 +115,7 @@ public class ShortestJobFirst implements Executable
 
 		
 		//System.out.println("******************RESULT toString*****************");
-		System.out.println(r.toString());
+//		System.out.println(r.toString());
 		return r;
 	}
 }
