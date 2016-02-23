@@ -58,7 +58,7 @@ public class ShortestRemainingTime implements Executable {
 			i += 0.1;
 		} while (getRemainingProcessesSize(processes) != 0);
 
-		return result;
+		return generateResults(processes, result);
 	}
 
 	private int getArrivedProcessesSize(ArrayList<Process> processes,
@@ -67,7 +67,6 @@ public class ShortestRemainingTime implements Executable {
 				.filter(notDone).collect(Collectors.toList()).size();
 	}
 
-	@SuppressWarnings("unused")
 	private Process getShortestRemaining(ArrayList<Process> processes,
 			float quanta) {
 
@@ -82,6 +81,25 @@ public class ShortestRemainingTime implements Executable {
 	private int getRemainingProcessesSize(ArrayList<Process> processes) {
 		return processes.stream().filter(notDone).collect(Collectors.toList())
 				.size();
+	}
+	
+	private Result generateResults(ArrayList<Process> processes, Result result){
+		
+		float turnaroundAvg = 0, waitingAvg = 0, responseAvg = 0;
+		
+		for(Process p : processes){
+			turnaroundAvg += Math.abs(p.getStartTime() - p.getEndTime());
+			waitingAvg += Math.abs(p.getArrivalNum() - p.getStartTime());
+			responseAvg += Math.abs(p.getArrivalNum() - p.getEndTime());
+		}
+		
+		turnaroundAvg /= processes.size();
+		waitingAvg /= processes.size();
+		responseAvg /= processes.size();
+		
+		result.runResults(turnaroundAvg, waitingAvg, responseAvg);
+		
+		return result;
 	}
 
 
