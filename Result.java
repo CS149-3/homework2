@@ -6,6 +6,7 @@ public class Result {
 	private float averageTurnaround;
 	private float averageWaiting;
 	private float averageResponseTime;
+	private float throughput;
 	
 	/**
 	 * Creates a Result object.
@@ -15,6 +16,7 @@ public class Result {
 		averageTurnaround = 0;
 		averageWaiting = 0;
 		averageResponseTime = 0;
+		throughput = 0;
 	}
 	
 	/**
@@ -37,10 +39,11 @@ public class Result {
 	 * @param waiting
 	 * @param response
 	 */
-	public void runResults(float turnaround, float waiting, float response){
+	public void runResults(float turnaround, float waiting, float response, float throughputSched){
 		averageTurnaround = turnaround;
 		averageWaiting = waiting;
 		averageResponseTime = response;
+		throughput = throughputSched;
 	}
 	
 	/**
@@ -52,6 +55,7 @@ public class Result {
 		returnable += "Turnaround Avg: " + averageTurnaround +"\n";
 		returnable += "Waiting Avg: " + averageWaiting + "\n";
 		returnable += "response Avg:" + averageResponseTime + "\n";
+		returnable += "Throughput: " + throughput + "\n";
 		
 		return returnable; 
 	}
