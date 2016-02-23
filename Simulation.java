@@ -40,11 +40,11 @@ public class Simulation {
 			System.out.println("\n Run " + (i + 1) + " \n");
 			System.out.println(processes);
 			
-			//System.out.println(fcfs);
-			//System.out.println(sjf);
-			//System.out.println(srt);
-			//System.out.println(rr);
-			//System.out.println(hpfp);
+			System.out.println(fcfs);
+			System.out.println(sjf);
+			System.out.println(srt);
+			System.out.println(rr);
+			System.out.println(hpfp);
 			System.out.println(hpfnp);
 		}
 	}
