@@ -71,6 +71,11 @@ public class Process {
 		return arrivalNum;
 	}
 	
+	public void setArrivalNum(float f)
+	{
+		arrivalNum = f;
+	}
+	
 	public String getName(){
 		return name;
 	}
@@ -135,11 +140,6 @@ public class Process {
 		startTime = 0;
 		endTime = 0;
 	}
-	
-	//need to address response field and determine what to pass. 
-	//public void outputResults(Result output){
-	//	output.outputResults((endTime - startTime), (endTime - startTime - runTime), 0);
-	//}
 	
 	public String toString(){
 		String returnable = "Process " + name + "\n";
@@ -216,3 +216,4 @@ public class Process {
 		
 	}
 }
+
