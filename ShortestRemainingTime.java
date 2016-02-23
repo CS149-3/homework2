@@ -80,19 +80,23 @@ public class ShortestRemainingTime implements Executable {
 
 	private Result generateResults(ArrayList<Process> processes, Result result) {
 
-		float turnaroundAvg = 0, waitingAvg = 0, responseAvg = 0;
+		float turnaroundAvg = 0, waitingAvg = 0, responseAvg = 0, throughput = 0;
 
 		for (Process p : processes) {
 			turnaroundAvg += Math.abs(p.getStartTime() - p.getEndTime());
 			waitingAvg += Math.abs(p.getArrivalNum() - p.getStartTime());
 			responseAvg += Math.abs(p.getArrivalNum() - p.getEndTime());
+			if(p.getEndTime() <= 100){
+				throughput++;
+			}
 		}
 
 		turnaroundAvg /= processes.size();
 		waitingAvg /= processes.size();
 		responseAvg /= processes.size();
+		throughput /= 100;
 
-		result.runResults(turnaroundAvg, waitingAvg, responseAvg);
+		result.runResults(turnaroundAvg, waitingAvg, responseAvg, throughput);
 
 		return result;
 	}
