@@ -46,7 +46,7 @@ public class HighestPriorityFirstNonPreemptive implements Executable {
 			
 			
 		}
-		result.runResults(turnaroundTime / throughput, waitingTime/ throughput, responseTime/throughput, throughput);
+		result.runResults(turnaroundTime / throughput, waitingTime/ throughput, responseTime/throughput, throughput / 100);
 		return result;
 	}
 	
@@ -111,7 +111,7 @@ public class HighestPriorityFirstNonPreemptive implements Executable {
 				finishedP = true;
 				process.stop(quanta);
 				throughput++;
-				waitingTime += process.getStartTime() - process.getArrivalNum();
+				waitingTime += Math.abs(process.getStartTime() - process.getArrivalNum());
 				turnaroundTime += (process.getEndTime() - process.getArrivalNum());
 				Process newProcess = nextProcess();
 				if(newProcess != null){
