@@ -10,10 +10,11 @@ public class Process {
 	private float endTime;
 	private float timeEnterQ;
 	private float waitTime;
+	private boolean hasStarted;
 	
 	public Process(String name, int priority, float arrival_num, float run_time){
 		this.name = name;
-		
+		this.hasStarted = false;
 		if(priority < 0 || priority > 5){
 			throw new RuntimeException("Invalid priority value");
 		}
@@ -44,7 +45,7 @@ public class Process {
 		*/
 		
 		this.runTime = run_time;
-		this.timeLeft = runTime;
+		this.timeLeft = run_time;
 	}
 	
 	/**
@@ -104,6 +105,10 @@ public class Process {
 		return waitTime;
 	}
 	
+	public boolean hasStarted(){
+		return hasStarted;
+	}
+	
 	public void setPriority(int newPriority) {
 		this.priority = newPriority;
 	}
@@ -122,6 +127,7 @@ public class Process {
 	
 	public void start(float startQuanta){
 		startTime = startQuanta;
+		hasStarted = true;
 	}
 	
 	public void decrement(float ranTime, float currentQuanta){
