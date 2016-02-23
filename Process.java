@@ -83,6 +83,14 @@ public class Process {
 		return timeLeft;
 	}
 	
+	public float getStartTime() {
+		return startTime;
+	}
+	
+	public float getEndTime() {
+		return endTime;
+	}
+	
 	public float getRunTime() {
 		return runTime;
 	}
