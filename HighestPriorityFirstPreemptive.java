@@ -6,7 +6,7 @@ public class HighestPriorityFirstPreemptive implements Executable {
 	@Override
 	public Result execute(ArrayList<Process> processes) {
 		// TODO Auto-generated method stub
-		return null;
+		return new Result();
 	}
 
 }
