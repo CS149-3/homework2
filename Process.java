@@ -48,8 +48,20 @@ public class Process {
 		this.timeLeft = run_time;
 	}
 	
-	public String getName(){
-		return name;
+	/**
+	 * Copy constructor
+	 * @param parent
+	 */
+	public Process(Process parent) {
+		this.name = parent.name;
+		this.priority = parent.priority;
+		this.arrivalNum = parent.arrivalNum;
+		this.runTime = parent.runTime;
+		this.timeLeft = parent.timeLeft;
+		this.startTime = parent.startTime;
+		this.endTime = parent.endTime;
+		this.timeEnterQ = parent.timeEnterQ;
+		this.waitTime = parent.waitTime;
 	}
 	
 	public int getPriority(){
@@ -60,6 +72,15 @@ public class Process {
 		return arrivalNum;
 	}
 	
+	public void setArrivalNum(float f)
+	{
+		arrivalNum = f;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
 	public float getTimeEnterQ() {
 		return timeEnterQ;
 	}
@@ -68,20 +89,20 @@ public class Process {
 		return timeLeft;
 	}
 	
+	public float getStartTime() {
+		return startTime;
+	}
+	
+	public float getEndTime() {
+		return endTime;
+	}
+	
 	public float getRunTime() {
 		return runTime;
 	}
 	
 	public float getWaitTime() {
 		return waitTime;
-	}
-	
-	public float getEndTime(){
-		return endTime;
-	}
-	
-	public float getStartTime(){
-		return startTime;
 	}
 	
 	public boolean hasStarted(){
@@ -125,11 +146,6 @@ public class Process {
 		startTime = 0;
 		endTime = 0;
 	}
-	
-	//need to address response field and determine what to pass. 
-	//public void outputResults(Result output){
-	//	output.outputResults((endTime - startTime), (endTime - startTime - runTime), 0);
-	//}
 	
 	public String toString(){
 		String returnable = "Process " + name + "\n";
@@ -206,3 +222,4 @@ public class Process {
 		
 	}
 }
+

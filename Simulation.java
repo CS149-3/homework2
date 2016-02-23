@@ -13,28 +13,22 @@ public class Simulation {
 			generateProcesses(20);
 			
 			// 1. run First-come first served
-			Result fcfs = new FirstComeFirstServed().execute(processes);
-			//resetProcesses();
+			Result fcfs = new FirstComeFirstServed().execute(copyProcesses());
 			
 			// 2. run Shortest job first
-			Result sjf = new ShortestJobFirst().execute(processes);
-			//resetProcesses();
+			Result sjf = new ShortestJobFirst().execute(copyProcesses());
 			
 			// 3. run Shortest remaining time
-			Result srt = new ShortestRemainingTime().execute(processes);
-			//resetProcesses();
+			Result srt = new ShortestRemainingTime().execute(copyProcesses());
 			
 			// 4. run Round robin
-			Result rr = new RoundRobin().execute(processes);
-			//resetProcesses();
+			Result rr = new RoundRobin().execute(copyProcesses());
 			
 			// 5. run Highest priority first (preemptive)
-			Result hpfp = new HighestPriorityFirstPreemptive().execute(processes);
-			//resetProcesses();
+			Result hpfp = new HighestPriorityFirstPreemptive().execute(copyProcesses());
 			
 			// 6. run Highest priority first (non-preemptive)
-			Result hpfnp = new HighestPriorityFirstNonPreemptive().execute(processes);
-			//resetProcesses();
+			Result hpfnp = new HighestPriorityFirstNonPreemptive().execute(copyProcesses());
 			
 			//print results (if we don't just change the above to execute in println's)
 			System.out.println("\n Run " + (i + 1) + " \n");
@@ -61,7 +55,11 @@ public class Simulation {
 		}
 	}
 	
-	private static void resetProcesses() {
-		for (Process process : processes) process.reset();
+	private static ArrayList<Process> copyProcesses() {
+		ArrayList<Process> processesCopy = new ArrayList<Process>();
+		
+		for (Process process : processes) processesCopy.add(new Process(process));
+		
+		return processesCopy;
 	}
 }

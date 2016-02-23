@@ -3,10 +3,12 @@ import java.util.ArrayList;
 public class Result {
 	
 	private ArrayList<String> timeChart;
+
+	private ArrayList<Process> processList;
 	private float averageTurnaround;
 	private float averageWaiting;
 	private float averageResponseTime;
-	private float throughput;
+	private float throughPut;
 	
 	/**
 	 * Creates a Result object.
@@ -16,7 +18,7 @@ public class Result {
 		averageTurnaround = 0;
 		averageWaiting = 0;
 		averageResponseTime = 0;
-		throughput = 0;
+		throughPut = 0;
 	}
 	
 	/**
@@ -38,12 +40,13 @@ public class Result {
 	 * @param turnaround
 	 * @param waiting
 	 * @param response
+	 * @param throughput
 	 */
-	public void runResults(float turnaround, float waiting, float response, float throughputSched){
+	public void runResults(float turnaround, float waiting, float response, float throughput){
 		averageTurnaround = turnaround;
 		averageWaiting = waiting;
 		averageResponseTime = response;
-		throughput = throughputSched;
+		throughPut = throughput;
 	}
 	
 	/**
@@ -54,8 +57,8 @@ public class Result {
 		
 		returnable += "Turnaround Avg: " + averageTurnaround +"\n";
 		returnable += "Waiting Avg: " + averageWaiting + "\n";
-		returnable += "response Avg:" + averageResponseTime + "\n";
-		returnable += "Throughput: " + throughput + "\n";
+		returnable += "Response Avg:" + averageResponseTime + "\n";
+		returnable += "Throughput: " + throughPut + "\n";
 		
 		return returnable; 
 	}
