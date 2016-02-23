@@ -34,11 +34,17 @@ public class Simulation {
 			System.out.println("\n Run " + (i + 1) + " \n");
 			System.out.println(processes);
 			
+			System.out.println("\nFirst Come First Served:");
 			System.out.println(fcfs);
+			System.out.println("\nShortest Job First:");
 			System.out.println(sjf);
+			System.out.println("\nShortest Remaining Time:");
 			System.out.println(srt);
+			System.out.println("\nRound Robin:");
 			System.out.println(rr);
+			System.out.println("\nHighest Priority First (Preemptive):");
 			System.out.println(hpfp);
+			System.out.println("\nHighest Priority First (Non Preemptive):");
 			System.out.println(hpfnp);
 		}
 	}

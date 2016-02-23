@@ -53,7 +53,7 @@ public class Result {
 	 * toString does stringy things. Output for our results for each algorithm run.
 	 */
 	public String toString(){
-		String returnable = "\nTime Chart:\n" + timeChart.toString() + "\n";
+		String returnable = "Time Chart:\n" + timeChart.toString() + "\n";
 		
 		returnable += "Turnaround Avg: " + averageTurnaround +"\n";
 		returnable += "Waiting Avg: " + averageWaiting + "\n";
