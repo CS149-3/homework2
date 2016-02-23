@@ -27,6 +27,16 @@ public class Result {
 		processList.add(process);
 	}
 	
+	public void setTurnAround(float f)
+	{
+		turnaroundTotal = f;
+	}
+	
+	public void setWaitingTotal(float f)
+	{
+		waitingTotal = f;
+	}
+	
 	public void outputResults(float turnaround, float waiting, float response){
 		turnaroundTotal += turnaround;
 		waitingTotal += waiting;
@@ -34,15 +44,15 @@ public class Result {
 	}
 	
 	public String toString(){
-		String returnable = "Process List: /n";
+		String returnable = "Process List: " +System.getProperty("line.separator");
 		
 		for(int i = 0; i < processList.size(); i++){
-			returnable += processList.get(i) + "/n";
+			returnable += processList.get(i) + System.getProperty("line.separator");
 		}
 		
-		returnable += "Turnaround Avg: " + (turnaroundTotal / processList.size()) +"\n";
-		returnable += "Waiting Avg: " + (waitingTotal / processList.size()) + "\n";
-		returnable += "response Avg:" + (responseTotal / processList.size()) + "\n";
+		returnable += "Turnaround Avg: " + (turnaroundTotal / processList.size()) + System.getProperty("line.separator");
+		returnable += "Waiting Avg: " + (waitingTotal / processList.size()) + System.getProperty("line.separator");
+		returnable += "response Avg:" + (responseTotal / processList.size()) + System.getProperty("line.separator");
 		return returnable; 
 	}
 }

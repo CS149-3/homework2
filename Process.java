@@ -54,6 +54,11 @@ public class Process {
 		return arrivalNum;
 	}
 	
+	public void setArrivalNum(float f)
+	{
+		arrivalNum = f;
+	}
+		
 	public float getTimeLeft() {
 		return timeLeft;
 	}
@@ -67,8 +72,18 @@ public class Process {
 		return endTime;
 	}
 	
+	public String getName()
+	{
+		return name;
+	}
+	
 	public void start(float startQuanta){
 		startTime = startQuanta;
+	}
+	
+	public float getStartTime()
+	{
+		return startTime;
 	}
 	
 	public void decrement(float ranTime, float currentQuanta){
