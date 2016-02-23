@@ -4,11 +4,10 @@ public class Result {
 	
 	private ArrayList<String> timeChart;
 
-	private ArrayList<Process> processList;
 	private float averageTurnaround;
 	private float averageWaiting;
 	private float averageResponseTime;
-	private float throughPut;
+	private float throughput;
 	
 	/**
 	 * Creates a Result object.
@@ -18,7 +17,7 @@ public class Result {
 		averageTurnaround = 0;
 		averageWaiting = 0;
 		averageResponseTime = 0;
-		throughPut = 0;
+		throughput = 0;
 	}
 	
 	/**
@@ -46,7 +45,23 @@ public class Result {
 		averageTurnaround = turnaround;
 		averageWaiting = waiting;
 		averageResponseTime = response;
-		throughPut = throughput;
+		this.throughput = throughput;
+	}
+	
+	public float getTurnaround() {
+		return averageTurnaround;
+	}
+	
+	public float getWaiting() {
+		return averageWaiting;
+	}
+	
+	public float getResponse() {
+		return averageResponseTime;
+	}
+	
+	public float getThroughput() {
+		return throughput;
 	}
 	
 	/**
@@ -58,7 +73,7 @@ public class Result {
 		returnable += "Turnaround Avg: " + averageTurnaround +"\n";
 		returnable += "Waiting Avg: " + averageWaiting + "\n";
 		returnable += "Response Avg:" + averageResponseTime + "\n";
-		returnable += "Throughput: " + throughPut + "\n";
+		returnable += "Throughput: " + throughput + "\n";
 		
 		return returnable; 
 	}
