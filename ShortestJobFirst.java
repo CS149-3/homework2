@@ -101,15 +101,18 @@ public class ShortestJobFirst implements Executable
 		int count = 1;
 		float turnAround = 0f;
 		float waitTimeTotal = 0f;
+		float responseTimeTotal = 0f;
 		for(Process s : running)
 		{
 			turnAround += s.getEndTime() - s.getStartTime();
 			waitTimeTotal += s.getStartTime() - s.getArrivalNum();
+			responseTimeTotal += s.getEndTime() - s.getArrivalNum();
 			//System.out.println(count + " " + s.toString());
 			count++;
 		}
 		r.setTurnAround(turnAround);
 		r.setWaitingTotal(waitTimeTotal);
+		r.setResponseTotal(responseTimeTotal);
 		
 		//System.out.println("End time of last " + running.get(numProcesses - 1).getEndTime());
 

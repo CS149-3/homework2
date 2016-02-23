@@ -31,6 +31,10 @@ public class Result {
 	{
 		turnaroundTotal = f;
 	}
+	public void setResponseTotal(float f)
+	{
+		responseTotal = f;
+	}
 	
 	public void setWaitingTotal(float f)
 	{
